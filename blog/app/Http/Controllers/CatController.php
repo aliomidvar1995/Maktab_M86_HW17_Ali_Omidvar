@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class SampleController extends Controller
+class CatController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index($title, $id, $cat)
+    public function index($cat,$title, $id)
     {
-        return view('sample', [
+        return view("$cat.index", [
             'title' => $title,
             'id' => $id,
             'cat' => $cat

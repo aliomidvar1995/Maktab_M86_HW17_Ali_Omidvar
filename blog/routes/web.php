@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\SampleController;
+use App\Http\Controllers\CatController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,11 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('wellcome');
 
-Route::get('/{title}/{id}/{cat}', [SampleController::class, 'index'])
+Route::get('/{cat}/{title}/{id}', [CatController::class, 'index'])
 ->where([
+    'cat' => '^(economy|sport)$',
     'title' => '^[A-Za-z]+$',
-    'id' => '^[0-9]+$',
-    'cat' => '^(economy|sport|values)$'
+    'id' => '^[0-9]+$'
 ]);
